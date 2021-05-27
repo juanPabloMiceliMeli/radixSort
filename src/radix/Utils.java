@@ -15,9 +15,8 @@ public class Utils {
             buckets[i] = new ArrayList<String>();
         }
 
-        for(int i = 0; i < s.length; i++){
-            String word = s[i];
-            int bucketIndex = word.charAt(index)-'0';
+        for (String word : s) {
+            int bucketIndex = word.charAt(index) - '0';
             buckets[bucketIndex].add(word);
         }
         return buckets;
@@ -26,9 +25,9 @@ public class Utils {
     public static String[] bucketsToArray(ArrayList<String>[] buckets, int size){
         String[] res = new String[size];
         int contador = 0;
-        for(int i = 0; i < buckets.length; i++){
-            for(int j = 0; j < buckets[i].size(); j++){
-                res[contador] = buckets[i].get(j);
+        for (ArrayList<String> currentBucket : buckets) {
+            for (String word : currentBucket) {
+                res[contador] = word;
                 contador++;
             }
         }
